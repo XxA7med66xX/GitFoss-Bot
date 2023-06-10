@@ -1,7 +1,5 @@
-import 'dart:io';
 import 'package:html/parser.dart' as html;
 import 'package:http/http.dart' as http;
-import 'package:rog_telegram_bot/commands/Create_and_prepare.dart';
 import 'package:teledart/teledart.dart';
 
 class HttpFetchURL {
@@ -34,7 +32,6 @@ class HttpFetchURL {
 
     //Method to extract the description of project
     String keyword3 = ':';
-    String endword3 = '.';
     int keyword_index3 = title.indexOf(keyword3);
     int endword_index3 = title.length;
     

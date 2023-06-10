@@ -1,7 +1,5 @@
 import 'package:teledart/teledart.dart';
-import 'package:teledart/telegram.dart';
-import 'package:teledart/model.dart';
-import 'package:rog_telegram_bot/models/URLprocess/HttpFetchURLInfo.dart';
+import 'package:GitFossBOT/models/URLprocess/HttpFetchURLInfo.dart';
 
 class create_and_prepare {
   create_and_prepare({
