@@ -1,5 +1,5 @@
 import 'package:teledart/teledart.dart';
-import 'package:GitFossBOT/commands/Create_and_prepare.dart';
+import 'package:GitFossBOT/commands/CreateCommand.dart';
 import 'package:GitFossBOT/commands/Start_Help_commands.dart';
 import 'package:teledart/telegram.dart';
 void main() async {
@@ -18,7 +18,7 @@ void main() async {
   
 
   //Create command, to create and prepare the post
-  final Create_and_prepare = create_and_prepare(teledart: teledart,);
+  final Create_and_prepare = createCommand(teledart: teledart,);
   Create_and_prepare.CreateCommand();
   Create_and_prepare.SaveUserInput();
   

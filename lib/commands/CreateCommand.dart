@@ -1,8 +1,8 @@
 import 'package:teledart/teledart.dart';
 import 'package:GitFossBOT/models/URLprocess/HttpFetchURLInfo.dart';
 
-class create_and_prepare {
-  create_and_prepare({
+class createCommand {
+  createCommand({
     required this.teledart,
     this.GitLink = "",
   });
