@@ -18,9 +18,9 @@ void main() async {
   
 
   //Create command, to create and prepare the post
-  final Create_and_prepare = createCommand(teledart: teledart,);
-  Create_and_prepare.CreateCommand();
-  Create_and_prepare.SaveUserInput();
+  final Createcommand = createCommand(teledart: teledart,);
+  Createcommand.CreateCommand();
+  Createcommand.SaveUserInput();
   
 
 
