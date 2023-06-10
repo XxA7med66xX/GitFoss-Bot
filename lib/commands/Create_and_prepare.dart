@@ -18,7 +18,10 @@ class create_and_prepare {
   CreateCommand() {
     teledart.onCommand('create').listen(
       (message) async {
-        await teledart.sendMessage(message.chat.id, 'Send github link : ');
+        await teledart.sendMessage(
+          message.chat.id,
+          'الرجاء إرسال رابط لمشروع على Github أو Gitlab',
+        );
       },
     );
   }
