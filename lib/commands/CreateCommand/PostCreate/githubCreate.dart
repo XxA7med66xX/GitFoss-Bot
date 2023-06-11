@@ -24,7 +24,61 @@ class githubPost {
       String Author_name = projectInfo['Aname'];
     String Project_title = projectInfo['Ptitle'];
     String Project_description = projectInfo['Pdescription'];
+    List<String> project_Releases = projectInfo['ProjectReleases'];
 
+    List<String> supportedPlatforms = [];
+    
+    List<Map<String, dynamic>> platforms = [
+        {
+          'name': 'لينكس',
+          'extensions': [
+            'AppImage',
+            'rpm',
+            'pacman',
+            'Ubuntu',
+            'deb',
+            'linux',
+            '@',
+            'gnome-shell-extension',
+            'flathub',
+            'flatpak',
+            'snap',
+            'snapcraft',
+            'bin',
+            'wine',
+          ]
+        },
+        {
+          'name': 'ويندوز',
+          'extensions': [
+            'exe',
+            'msi',
+            'cmd',
+            'bat',
+            'windows',
+            'win64',
+            'appx',
+            'msix'
+          ]
+        },
+        {
+          'name': 'ماك',
+          'extensions': ['dmg', 'macos', 'mac', 'apple', 'darwin', 'bin']
+        }
+      ];
+
+      for (Map<String, dynamic> platform in platforms) {
+        bool isSupported = false;
+        for (String extension in platform['extensions']) {
+          if (project_Releases
+              .any((releaseTitle) => releaseTitle.contains(extension))) {
+            isSupported = true;
+          }
+        }
+        if (isSupported) {
+          supportedPlatforms.add(platform['name']);
+        }
+      }
     await teleDart.sendMessage(
           message.chat.id,
           '''
@@ -34,7 +88,7 @@ class githubPost {
 
 📄 <b>الوصف</b> : $Project_description
 
-💻 <b>المنصات المدعومة</b> : لينكس | ويندوز | ماك
+💻 <b>المنصات المدعومة</b> : ${supportedPlatforms.join(' | ')}
 
 👤 <b>المطور</b> : $Author_name
 ㅤ
