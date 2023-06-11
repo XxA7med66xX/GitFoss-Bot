@@ -29,6 +29,8 @@ class githubPost {
     String Project_title = projectInfo['Ptitle'];
     String Project_description = projectInfo['Pdescription'];
     List<String> project_Releases = projectInfo['ProjectReleases'];
+    String Release_version = projectInfo['Rversion'];
+    String Release_version_ifNull = projectInfo['RversionNull'];
 
     List<String> supportedPlatforms = [];
     
@@ -124,6 +126,8 @@ class githubPost {
 🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>$Project_title</a> 
 
 📄 <b>الوصف</b> : $Project_description
+
+🔢 <b>اخر إصدار (منذ النشر)</b> : $Release_version$Release_version_ifNull
 
 💻 <b>المنصات المدعومة</b> : ${supportedPlatforms.join(' | ')}
 

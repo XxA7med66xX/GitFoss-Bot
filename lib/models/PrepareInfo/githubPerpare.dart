@@ -109,6 +109,8 @@ class githubInfoPerpare {
       'Aname': author_name,
       'Pdescription': project_description,
       'ProjectReleases': project_Releases,
+      'Rversion' : release_version,
+      'RversionNull' : release_version_ifNULL,
     };
 
     print(project_Releases);
