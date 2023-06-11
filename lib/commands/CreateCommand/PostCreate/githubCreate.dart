@@ -9,7 +9,11 @@ class githubPost {
   String gitLink;
   TeleDart teleDart;
   TeleDartMessage message;
-
+  bool isAppImage = false;
+  bool isGnome_extention = false;
+  bool isFlatpak = false;
+  bool isSnap = false;
+  
   Githubpost() async {
 
     final URLfetchParse = URLfetchParseInfo(
@@ -21,7 +25,7 @@ class githubPost {
     Map<String, dynamic>? projectInfo = await URLfetchParse.URL_fetchParseInfo();
 
     if(projectInfo != null){
-      String Author_name = projectInfo['Aname'];
+    String Author_name = projectInfo['Aname'];
     String Project_title = projectInfo['Ptitle'];
     String Project_description = projectInfo['Pdescription'];
     List<String> project_Releases = projectInfo['ProjectReleases'];
@@ -70,19 +74,52 @@ class githubPost {
       for (Map<String, dynamic> platform in platforms) {
         bool isSupported = false;
         for (String extension in platform['extensions']) {
-          if (project_Releases
-              .any((releaseTitle) => releaseTitle.contains(extension))) {
+          if (project_Releases.any((releaseTitle) => releaseTitle.contains(extension))) {
             isSupported = true;
+            if (extension.contains('AppImage') &&
+                extension.contains('flathub')) {
+              isAppImage = true;
+              isFlatpak = true;
+            } else if (extension.contains('AppImage')) {
+              isAppImage = true;
+            } else if (extension.contains('gnome-shell-extension')) {
+              isGnome_extention = true;
+            } else if (extension.contains('@')) {
+              isGnome_extention = true;
+            } else if (extension.contains('flathub')) {
+              isFlatpak = true;
+            } else if (extension.contains('flatpak')) {
+              isFlatpak = true;
+            } else if (extension.contains('snap')) {
+              isSnap = true;
+            } else if (extension.contains('snapcraft')) {
+              isSnap = true;
+            }
           }
         }
         if (isSupported) {
           supportedPlatforms.add(platform['name']);
         }
       }
+
+      List<String> categorys = [];
+      if (isAppImage) {
+        categorys.add('#تطبيقات_محمولة');
+      }
+      if (isGnome_extention) {
+        categorys.add('#إضافات_جنوم');
+      }
+      if (isFlatpak) {
+        categorys.add('#تطبيقات_فلاتباك');
+      }
+      if (isSnap) {
+        categorys.add('#تطبيقات_سناب');
+      }
+
     await teleDart.sendMessage(
           message.chat.id,
           '''
-          #️⃣ <b>التصنيف</b> : #تطبيقات_محمولة
+          #️⃣ <b>التصنيف</b> : ${categorys.join(' | ')}
 
 🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>$Project_title</a> 
 
