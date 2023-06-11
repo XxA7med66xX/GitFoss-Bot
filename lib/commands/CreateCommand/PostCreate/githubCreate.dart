@@ -15,6 +15,7 @@ class githubPost {
     final URLfetchParse = URLfetchParseInfo(
       teledart: teleDart,
       URL: gitLink,
+      message: message
     );
 
     Map<String, dynamic>? projectInfo = await URLfetchParse.URL_fetchParseInfo();

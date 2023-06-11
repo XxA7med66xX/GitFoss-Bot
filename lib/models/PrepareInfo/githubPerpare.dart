@@ -1,17 +1,27 @@
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
+import 'package:teledart/model.dart';
+import 'package:teledart/teledart.dart';
 
 class githubInfoPerpare {
 
   String URL;
-  githubInfoPerpare({required this.URL});
+  TeleDart teleDart;
+  TeleDartMessage message;
+  
+  githubInfoPerpare({
+    required this.URL,
+    required this.teleDart,
+    required this.message,
+  });
 
   githubPrepare() async {
     
     var response = await http.get(Uri.parse(URL));
     var Document = html.parse(response.body);
 
-    //Here this variable save the extracted title as a text
+    if(response.statusCode != 404){
+      //Here this variable save the extracted title as a text
     var title = Document.head!.querySelector('title')!.text;
 
     //Method to bring the name of project author
@@ -44,5 +54,11 @@ class githubInfoPerpare {
     };
 
     return projectInfo;
+    } else {
+      teleDart.sendMessage(
+        message.chat.id,
+        'المشروع غير موجود، الرجاء التحقق من الرابط المُدخل',
+      );
+    }
   }
 }
