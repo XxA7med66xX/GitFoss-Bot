@@ -1,6 +1,4 @@
 import 'package:GitFossBOT/models/PrepareInfo/githubPerpare.dart';
-import 'package:html/parser.dart' as html;
-import 'package:http/http.dart' as http;
 import 'package:teledart/teledart.dart';
 
 class URLfetchParseInfo {

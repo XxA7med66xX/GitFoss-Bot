@@ -1,6 +1,5 @@
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate.dart';
 import 'package:teledart/teledart.dart';
-import 'package:GitFossBOT/models/URLprocess/URLfetchParseInfo.dart';
 
 class createCommand {
   createCommand({
@@ -37,9 +36,13 @@ class createCommand {
           case 0:
             final GithubCreate = githubPost(gitLink: GitLink, teleDart: teledart, message: message);
             return GithubCreate.Githubpost();
+
+          default:
+            await teledart.sendMessage(
+              message.chat.id,
+              'رابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab',
+            );
         }
-        
-        
       },
     );
   }

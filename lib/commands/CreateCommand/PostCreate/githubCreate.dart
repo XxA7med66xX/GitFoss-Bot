@@ -17,9 +17,10 @@ class githubPost {
       URL: gitLink,
     );
 
-    Map<String, dynamic>projectInfo = await URLfetchParse.URL_fetchParseInfo();
+    Map<String, dynamic>? projectInfo = await URLfetchParse.URL_fetchParseInfo();
 
-    String Author_name = projectInfo['Aname'];
+    if(projectInfo != null){
+      String Author_name = projectInfo['Aname'];
     String Project_title = projectInfo['Ptitle'];
     String Project_description = projectInfo['Pdescription'];
 
@@ -39,5 +40,6 @@ class githubPost {
           ''',
           parseMode: 'html'
         );
+    }
   }
 }
