@@ -1,5 +1,5 @@
 import 'package:teledart/teledart.dart';
-import 'package:GitFossBOT/commands/CreateCommand.dart';
+import 'package:GitFossBOT/commands/CreateCommand/CreateCommand.dart';
 import 'package:GitFossBOT/commands/Start_Help_commands.dart';
 import 'package:teledart/telegram.dart';
 void main() async {
@@ -14,9 +14,6 @@ void main() async {
   final StartHelpCommands = Start_Help_Commands(teledart: teledart, BOT_TOKEN: BOT_TOKEN);
   StartHelpCommands.Start_Help_commands();
   
-  //Take the url and fetch them to extract the paragraph
-  
-
   //Create command, to create and prepare the post
   final Createcommand = createCommand(teledart: teledart,);
   Createcommand.CreateCommand();
