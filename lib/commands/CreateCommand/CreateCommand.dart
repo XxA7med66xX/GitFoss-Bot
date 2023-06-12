@@ -1,6 +1,5 @@
-import 'dart:async';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate.dart';
-import 'package:teledart/model.dart';
+import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate.dart';
 import 'package:teledart/teledart.dart';
 
 class createCommand {
@@ -14,7 +13,7 @@ class createCommand {
   String Project_title = '';
   String Author_name = '';
   String Project_description = '';
-  static const List<String> defaultURLs = ['github.com'];
+  static const List<String> defaultURLs = ['github.com', 'gitlab'];
   bool isCreating = false;
   
   //This function used to set /create command on the bot.
@@ -41,6 +40,10 @@ class createCommand {
           case 0:
             final GithubCreate = githubPost(gitLink: GitLink, teleDart: teledart, message: message);
             return GithubCreate.Githubpost();
+
+          case 1:
+            final GitlabCreate = gitlabPost(teledart: teledart, message: message, GitLink: GitLink);
+            return GitlabCreate.GitlabPost();
 
           default:
             await teledart.sendMessage(

@@ -1,4 +1,5 @@
 import 'package:GitFossBOT/models/PrepareInfo/githubPerpare.dart';
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -13,7 +14,7 @@ class URLfetchParseInfo {
   String URL;
   TeleDart teledart;
   TeleDartMessage message;
-  static const List<String> defaultURLs = ['github.com'];
+  static const List<String> defaultURLs = ['github.com','gitlab'];
 
   URL_fetchParseInfo() async {
 
@@ -21,6 +22,10 @@ class URLfetchParseInfo {
       case 0:
         final githubPrepare = githubInfoPerpare(URL: URL, teleDart: teledart, message: message,);
         return githubPrepare.githubPrepare();
+
+      case 1:
+        final gitlabPrepare = gitlabInfoPerpare(URL: URL, teledart: teledart, message: message);
+        return gitlabPrepare.gitlabPrepare();  
     }
   }
 }
