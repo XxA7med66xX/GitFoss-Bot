@@ -39,10 +39,12 @@ class createCommand {
         switch (defaultURLs.indexWhere((defaultURL) => GitLink.contains(defaultURL))) {
           case 0:
             final GithubCreate = githubPost(gitLink: GitLink, teleDart: teledart, message: message);
+            isCreating=false;
             return GithubCreate.Githubpost();
 
           case 1:
             final GitlabCreate = gitlabPost(teledart: teledart, message: message, GitLink: GitLink);
+            isCreating = false;
             return GitlabCreate.GitlabPost();
 
           default:
