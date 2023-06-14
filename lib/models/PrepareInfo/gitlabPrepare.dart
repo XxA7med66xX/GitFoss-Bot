@@ -20,6 +20,7 @@ class gitlabInfoPerpare {
     var response = await http.get(Uri.parse(URL));
     var document = await html.parse(response.body);
 
+    if(response.statusCode != 403){
     String gtitle = document.head!.querySelector('title')!.text;
 
     String keyword20 = '/';
@@ -57,5 +58,11 @@ class gitlabInfoPerpare {
     };
 
     return gitlabProjectInfo;
+    } else {
+      teledart.sendMessage(
+        message.chat.id,
+        'المشروع غير موجود، الرجاء التحقق من الرابط المُدخل',
+      );
+    }
   }
 }
