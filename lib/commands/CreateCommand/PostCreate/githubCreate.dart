@@ -30,7 +30,6 @@ class githubPost {
     String Project_description = projectInfo['Pdescription'];
     List<String> project_Releases = projectInfo['ProjectReleases'];
     String Release_version = projectInfo['Rversion'];
-    String Release_version_ifNull = projectInfo['RversionNull'];
 
     List<String> supportedPlatforms = [];
     
@@ -127,7 +126,7 @@ class githubPost {
 
 📄 <b>الوصف</b> : $Project_description
 
-🔢 <b>اخر إصدار (منذ النشر)</b> : $Release_version$Release_version_ifNull
+🔢 <b>اخر إصدار (منذ النشر)</b> : $Release_version
 
 💻 <b>المنصات المدعومة</b> : ${supportedPlatforms.join(' | ')}
 
