@@ -1,4 +1,4 @@
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/flat_snap_selectors.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/FlatSnap/getFlatSnap.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/GithubSubStrings.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getTitle.dart';
@@ -26,16 +26,6 @@ class githubInfoPerpare {
 
     if (response.statusCode != 404) {
 
-    String? flatpak_badge_URL = FlatSnapSelectors().flatpakSelector(document);
-          
-    final String? snap_badge_URL = FlatSnapSelectors().snapSelector(document);
-
-    final String? flat_snap_Badges = FlatSnapSelectors().flatpakSelector2(document);
-
-    final String? flatpakMarker = FlatSnapSelectors().flatpakselector3(document);
-    
-    final String? snapMarker = FlatSnapSelectors().snapSelector2(document);
-
     final String releases_URL = "$URL" + "/releases";
 
     final response2 = await http.get(Uri.parse(releases_URL));
@@ -47,22 +37,19 @@ class githubInfoPerpare {
 
     final response3 = await http.get(Uri.parse(releases_tag_url));
     final document3 = html.parse(response3.body);
-
+    
     final List<dynamic> project_Releases =
           document3.querySelectorAll(".Truncate-text.text-bold")
               .map((R_title) => R_title.text)
               .toList();
-              project_Releases.add(flat_snap_Badges);
-              project_Releases.add(snap_badge_URL);
-              project_Releases.add(flatpak_badge_URL);
-              project_Releases.add(flatpakMarker);
-              project_Releases.add(snapMarker);
+              project_Releases.addAll(List<String>.from(getFlatSnap().FlatSnap(document)));
 
+    
     final String title = getTitle().Title(document);
     final String author_name = Github_subStrings().AuthorName(title);
     final String project_Title = Github_subStrings().ProjectName(title);
     final String project_description = Github_subStrings().ProjectDescription(title);
-
+    
     final Map<String, dynamic> projectInfo = {
       'Ptitle': project_Title,
       'Aname': author_name,
