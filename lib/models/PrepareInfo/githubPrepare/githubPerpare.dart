@@ -1,7 +1,7 @@
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/flat_snap_selectors.dart';
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/github_substrings.dart';
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/getReleaseVersion.dart';
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/getTitle.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/GithubSubStrings.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getReleaseVersion.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getTitle.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
