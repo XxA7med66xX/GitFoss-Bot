@@ -1,4 +1,4 @@
-import 'package:html/dom.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/flat_snap_selectors.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
@@ -25,30 +25,15 @@ class githubInfoPerpare {
 
     final String title = document.head!.querySelector('title')!.text;
 
-    final Element? flatpak_image_Element = await document.querySelector('img[data-canonical-src="https://flathub.org/assets/badges/flathub-badge-en.png"]');
-
-    final String? flatpak_badge_URL = flatpak_image_Element?.attributes['data-canonical-src'] ?? 'flat is not supported';
+    String? flatpak_badge_URL = FlatSnapSelectors().flatpakSelector(document);
           
-    final Element? snap_image_Element = await document.querySelector('img[data-canonical-src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"]');
-          
-    final String? snap_badge_URL = snap_image_Element?.attributes['data-canonical-src'] ?? 'snp is not supported';
+    final String? snap_badge_URL = FlatSnapSelectors().snapSelector(document);
 
-    final String flat_snap_Badges = document.querySelectorAll('img[data-canonical-src]')
-          .map((flat_snap) => flat_snap.attributes['data-canonical-src'])
-          .toString()
-          .toLowerCase();
+    final String? flat_snap_Badges = FlatSnapSelectors().flatpakSelector2(document);
 
-    String? flatpak_snapTextChecker = document.body!.text.toLowerCase();
-
-    String flatpakMarker = '';
-    String snapMarker = '';
+    final String? flatpakMarker = FlatSnapSelectors().flatpakselector3(document);
     
-    if (flatpak_snapTextChecker.contains('flatpak')) {
-      flatpakMarker = 'flatpak';
-    }
-    if (flatpak_snapTextChecker.contains('snap')) {
-      snapMarker = 'snap';
-    }
+    final String? snapMarker = FlatSnapSelectors().snapSelector2(document);
 
     final String releases_URL = "$URL" + "/releases";
 
