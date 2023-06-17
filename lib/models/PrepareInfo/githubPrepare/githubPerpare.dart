@@ -1,4 +1,7 @@
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/flat_snap_selectors.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/github_substrings.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/getReleaseVersion.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/getTitle.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
@@ -23,8 +26,6 @@ class githubInfoPerpare {
 
     if (response.statusCode != 404) {
 
-    final String title = document.head!.querySelector('title')!.text;
-
     String? flatpak_badge_URL = FlatSnapSelectors().flatpakSelector(document);
           
     final String? snap_badge_URL = FlatSnapSelectors().snapSelector(document);
@@ -40,7 +41,7 @@ class githubInfoPerpare {
     final response2 = await http.get(Uri.parse(releases_URL));
     final document2 = html.parse(response2.body);
 
-    final String? releaseVersion = document2.querySelector('div.css-truncate-target span')?.text.trim() ?? 'لايحتوي على رقم إصدار في Github.';
+    final String? releaseVersion = getReleaseVersion().releaseVersion(document2);
 
     final String releases_tag_url = "$releases_URL/expanded_assets/$releaseVersion";
 
@@ -56,30 +57,11 @@ class githubInfoPerpare {
               project_Releases.add(flatpak_badge_URL);
               project_Releases.add(flatpakMarker);
               project_Releases.add(snapMarker);
-      
 
-    //Method to bring the name of project author
-    const String keyword1 = '-';
-    const String endword1 = '/';
-    final int keyword_index1 = title.indexOf(keyword1);
-    final int endword_index1 = title.indexOf(endword1);
-
-    //Method to bring the name of project
-    const String keyword2 = '/';
-    const String endword2 = ':';
-    final int keyword_index2 = title.indexOf(keyword2) + 1;
-    final int endword_index2 = title.indexOf(endword2);
-
-    //Method to extract the description of project
-    const String keyword3 = ':';
-    final int keyword_index3 = title.indexOf(keyword3);
-    final int endword_index3 = title.length;
-
-    //The result of the method's above
-    final String author_name = title.substring(keyword_index1 + 2, endword_index1);
-    final String project_Title = title.substring(keyword_index2, endword_index2);
-    final String project_description = title.substring(keyword_index3 + 1, endword_index3);
-        
+    final String title = getTitle().Title(document);
+    final String author_name = Github_subStrings().AuthorName(title);
+    final String project_Title = Github_subStrings().ProjectName(title);
+    final String project_description = Github_subStrings().ProjectDescription(title);
 
     final Map<String, dynamic> projectInfo = {
       'Ptitle': project_Title,
