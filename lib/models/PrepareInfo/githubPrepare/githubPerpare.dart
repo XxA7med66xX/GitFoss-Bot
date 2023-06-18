@@ -1,5 +1,5 @@
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/FlatSnap/getFlatSnap.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/GithubSubStrings.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getProjectReleases.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getTitle.dart';
 import 'package:http/http.dart' as http;
@@ -38,18 +38,12 @@ class githubInfoPerpare {
     final response3 = await http.get(Uri.parse(releases_tag_url));
     final document3 = html.parse(response3.body);
     
-    final List<dynamic> project_Releases =
-          document3.querySelectorAll(".Truncate-text.text-bold")
-              .map((R_title) => R_title.text)
-              .toList();
-              project_Releases.addAll(List<String>.from(getFlatSnap().FlatSnap(document)));
-
-    
     final String title = getTitle().Title(document);
     final String author_name = Github_subStrings().AuthorName(title);
     final String project_Title = Github_subStrings().ProjectName(title);
     final String project_description = Github_subStrings().ProjectDescription(title);
-    
+    final List<dynamic> project_Releases = getProjectReleases().ProjectReleases(document, document3);
+
     final Map<String, dynamic> projectInfo = {
       'Ptitle': project_Title,
       'Aname': author_name,

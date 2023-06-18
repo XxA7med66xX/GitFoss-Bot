@@ -28,7 +28,7 @@ class githubPost {
     String Author_name = projectInfo['Aname'];
     String Project_title = projectInfo['Ptitle'];
     String Project_description = projectInfo['Pdescription'];
-    List<String> project_Releases = projectInfo['ProjectReleases'];
+    List<dynamic> project_Releases = projectInfo['ProjectReleases'];
     String Release_version = projectInfo['Rversion'];
 
     List<String> supportedPlatforms = [];
