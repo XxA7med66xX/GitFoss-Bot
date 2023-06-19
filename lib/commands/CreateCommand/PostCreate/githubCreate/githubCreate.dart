@@ -1,6 +1,6 @@
+import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/getProjectDetails.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
-import 'package:GitFossBOT/models/URLprocess/URLfetchParseInfo.dart';
 
 class githubPost {
 
@@ -16,20 +16,8 @@ class githubPost {
   
   Githubpost() async {
 
-    final URLfetchParse = URLfetchParseInfo(
-      teledart: teleDart,
-      URL: gitLink,
-      message: message
-    );
-
-    Map<String, dynamic>? projectInfo = await URLfetchParse.URL_fetchParseInfo();
-
-    if(projectInfo != null){
-    String Author_name = projectInfo['Aname'];
-    String Project_title = projectInfo['Ptitle'];
-    String Project_description = projectInfo['Pdescription'];
-    List<dynamic> project_Releases = projectInfo['ProjectReleases'];
-    String Release_version = projectInfo['Rversion'];
+    final ProjectDetails = getProjectDetails(gitLink: gitLink, teleDart: teleDart, message: message);
+    await ProjectDetails.ProjectDetails();
 
     List<String> supportedPlatforms = [];
     
@@ -75,7 +63,7 @@ class githubPost {
       for (Map<String, dynamic> platform in platforms) {
         bool isSupported = false;
         for (String extension in platform['extensions']) {
-          if (project_Releases.any((releaseTitle) => releaseTitle.contains(extension))) {
+          if (ProjectDetails.Project_Releases.any((releaseTitle) => releaseTitle.contains(extension))) {
             isSupported = true;
             if (extension.contains('AppImage') &&
                 extension.contains('flathub')) {
@@ -116,25 +104,26 @@ class githubPost {
       if (isSnap) {
         categorys.add('#تطبيقات_سناب');
       }
+      print(ProjectDetails.Project_title);
 
     await teleDart.sendMessage(
           message.chat.id,
           '''
           #️⃣ <b>التصنيف</b> : ${categorys.join(' | ')}
 
-🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>$Project_title</a> 
+🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>${ProjectDetails.Project_title}</a> 
 
-📄 <b>الوصف</b> : $Project_description
+📄 <b>الوصف</b> : ${ProjectDetails.Project_description}
 
-🔢 <b>اخر إصدار (منذ النشر)</b> : $Release_version
+🔢 <b>اخر إصدار (منذ النشر)</b> : ${ProjectDetails.Release_version}
 
 💻 <b>المنصات المدعومة</b> : ${supportedPlatforms.join(' | ')}
 
-👤 <b>المطور</b> : $Author_name
+👤 <b>المطور</b> : ${ProjectDetails.Author_name}
 ㅤ
           ''',
           parseMode: 'html'
         );
     }
   }
-}
+
