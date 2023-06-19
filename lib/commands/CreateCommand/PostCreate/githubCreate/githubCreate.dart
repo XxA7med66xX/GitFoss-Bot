@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/Categorys.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/getProjectDetails.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
 import 'package:teledart/model.dart';
@@ -7,9 +8,9 @@ class githubPost {
 
   githubPost({this.gitLink = '', required this.teleDart, required this.message});
 
-  String gitLink;
-  TeleDart teleDart;
-  TeleDartMessage message;
+  final String gitLink;
+  final TeleDart teleDart;
+  final TeleDartMessage message;
   
   Githubpost() async {
 
@@ -18,26 +19,15 @@ class githubPost {
 
     final PlatformAutoSort = PlatformsAutoSort(ProjectReleases: ProjectDetails.Project_Releases);
     PlatformAutoSort.AutoSort();
-
-      List<String> categorys = [];
-      if (PlatformAutoSort.isAppImage) {
-        categorys.add('#تطبيقات_محمولة');
-      }
-      if (PlatformAutoSort.isGnome_extention) {
-        categorys.add('#إضافات_جنوم');
-      }
-      if (PlatformAutoSort.isFlatpak) {
-        categorys.add('#تطبيقات_فلاتباك');
-      }
-      if (PlatformAutoSort.isSnap) {
-        categorys.add('#تطبيقات_سناب');
-      }
+    
+    final _Categorys = Categorys(ProjectReleases: ProjectDetails.Project_Releases);
+    _Categorys.category();  
       print(ProjectDetails.Project_title);
 
     await teleDart.sendMessage(
           message.chat.id,
           '''
-          #️⃣ <b>التصنيف</b> : ${categorys.join(' | ')}
+          #️⃣ <b>التصنيف</b> : ${_Categorys.categorys.join(' | ')}
 
 🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>${ProjectDetails.Project_title}</a> 
 

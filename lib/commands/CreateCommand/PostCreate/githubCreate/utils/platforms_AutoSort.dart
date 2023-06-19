@@ -8,7 +8,7 @@ class PlatformsAutoSort {
 
   PlatformsAutoSort({required this.ProjectReleases});
 
-  AutoSort() {
+  List<String> AutoSort() {
     
     List<String> supportedPlatforms = [];
 
