@@ -1,5 +1,5 @@
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/githubCreate.dart';
-import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate.dart';
+import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/gitlabCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/linkFormatter.dart';
 import 'package:teledart/teledart.dart';
 
