@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getTitle.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
@@ -21,16 +22,17 @@ class gitlabInfoPerpare {
     var document = await html.parse(response.body);
 
     if(response.statusCode != 403){
-    String gtitle = document.head!.querySelector('title')!.text;
+    
+    String Title =  getTitle().Title(document);
 
     String keyword20 = '/';
     String endword20 = '·';
-    int keyword20_index = gtitle.indexOf(keyword20);
-    int endword20_index = gtitle.indexOf(endword20);
+    int keyword20_index = Title.indexOf(keyword20);
+    int endword20_index = Title.indexOf(endword20);
 
-    String gitlab_title = gtitle.substring(keyword20_index + 1, endword20_index).trim();
+    String gitlab_title = Title.substring(keyword20_index + 1, endword20_index).trim();
         
-    String gitlab_author = gtitle.substring(0, keyword20_index).trim();
+    String gitlab_author = Title.substring(0, keyword20_index).trim();
 
     String? gitlab_description = document.querySelector('div.home-panel-description-markdown p')?.text ??'لم يضع المطور وصفاً للمشروع';
             

@@ -1,5 +1,5 @@
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/githubPerpare.dart';
-import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare.dart';
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/gitlabPrepare.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
