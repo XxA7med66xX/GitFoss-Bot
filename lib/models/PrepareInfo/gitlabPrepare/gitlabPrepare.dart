@@ -28,12 +28,7 @@ class gitlabInfoPerpare {
     
     String Title =  getTitle().Title(document);
 
-    String keyword20 = '/';
-    String endword20 = '·';
-    int keyword20_index = Title.indexOf(keyword20);
-    int endword20_index = Title.indexOf(endword20);
-
-    String gitlab_title = Title.substring(keyword20_index + 1, endword20_index).trim();
+    String? gitlab_title = gitlabSubStrings().ProjectName(Title);
         
     String gitlab_author = gitlabSubStrings().AuthorName(Title);
 
