@@ -1,6 +1,7 @@
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getDescription.dart';
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getTitle.dart';
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/gitlabSubStrings.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
@@ -34,7 +35,7 @@ class gitlabInfoPerpare {
 
     String gitlab_title = Title.substring(keyword20_index + 1, endword20_index).trim();
         
-    String gitlab_author = Title.substring(0, keyword20_index).trim();
+    String gitlab_author = gitlabSubStrings().AuthorName(Title);
 
     String? gitlab_description = getDescription().description(document);
             
