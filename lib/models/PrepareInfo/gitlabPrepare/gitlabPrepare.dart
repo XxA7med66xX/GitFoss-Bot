@@ -1,4 +1,5 @@
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getDescription.dart';
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getTitle.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
@@ -42,7 +43,7 @@ class gitlabInfoPerpare {
     var response2 = await http.get(Uri.parse(gitlab_tags_URL));
     var document2 = await html.parse(response2.body);
 
-    String gitlab_release_version = document2.querySelector('.item-title')!.text.trim();
+    String gitlab_release_version = getReleaseVersion().releaseVersion(document2);
         
 
     //## The automated platform sorting was delayed becuase it's hard to extract texts of releases section
