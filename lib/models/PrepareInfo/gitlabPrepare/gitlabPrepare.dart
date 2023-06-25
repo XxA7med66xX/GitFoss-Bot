@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getDescription.dart';
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getTitle.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
@@ -34,7 +35,7 @@ class gitlabInfoPerpare {
         
     String gitlab_author = Title.substring(0, keyword20_index).trim();
 
-    String? gitlab_description = document.querySelector('div.home-panel-description-markdown p')?.text ??'لم يضع المطور وصفاً للمشروع';
+    String? gitlab_description = getDescription().description(document);
             
     String gitlab_tags_URL = '${URL + '/-/tags'}';
 
