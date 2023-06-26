@@ -1,4 +1,5 @@
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/GlabGetProjectInfo.dart';
+import 'package:GitFossBOT/models/URLprocess/UrlErrorMsg.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 import 'package:teledart/model.dart';
@@ -39,12 +40,9 @@ class gitlabInfoPerpare {
     final Map<String, dynamic> gitlabProjectInfo = GlabGetProjectInfo().AllProjectInfo(document, document2);
 
     return gitlabProjectInfo;
-    
+
     } else {
-      teledart.sendMessage(
-        message.chat.id,
-        'المشروع غير موجود، الرجاء التحقق من الرابط المُدخل',
-      );
+      UrlErrorMsg(teleDart: teledart, message: message).ErrorMsg();
     }
   }
 }
