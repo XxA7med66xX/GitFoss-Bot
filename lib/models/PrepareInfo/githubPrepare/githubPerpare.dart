@@ -1,4 +1,4 @@
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/FlatSnap/getAllProjectInfo.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getAllProjectInfo.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/URLprocess/UrlErrorMsg.dart';
 import 'package:http/http.dart' as http;
