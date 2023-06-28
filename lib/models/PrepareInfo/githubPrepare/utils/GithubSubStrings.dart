@@ -1,37 +1,33 @@
+import 'package:GitFossBOT/models/PrepareInfo/utils/SubStringsExtractor.dart';
+
 class Github_subStrings {
 
-  String AuthorName(String title) {
+  String Author_name = '';
+  String ProjectName = '';
+  String ProjectDescription = '';
 
-    const String keyword1 = '-';
-    const String endword1 = '/';
-    final int keyword_index1 = title.indexOf(keyword1);
-    final int endword_index1 = title.indexOf(endword1);
+  ghubSubstrings(String Title) {
 
-    final String AuthorName = title.substring(keyword_index1 + 2, endword_index1);
+    Author_name = SubStringsExtractor().Substring(
+      Title,
+      Keyword: '-',
+      Endword: '/',
+      keyNUM: 2,
+    );
 
-    return AuthorName;
+    ProjectName = SubStringsExtractor().Substring(
+      Title,
+      Keyword: '/',
+      Endword: ':',
+      keyNUM: 1,
+    );
+
+    ProjectDescription = SubStringsExtractor().Substring(
+      Title,
+      Keyword: ':',
+      Endword: 'length',
+      keyNUM: 1,
+    );
   }
 
-  String ProjectName(String title) {
-
-    const String keyword2 = '/';
-    const String endword2 = ':';
-    final int keyword_index2 = title.indexOf(keyword2) + 1;
-    final int endword_index2 = title.indexOf(endword2);
-
-    final String ProjectName = title.substring(keyword_index2, endword_index2);
-        
-    return ProjectName;
-  }
-
-  String ProjectDescription(String title) {
-
-    const String keyword3 = ':';
-    final int keyword_index3 = title.indexOf(keyword3);
-    final int endword_index3 = title.length;
-
-    final String ProjectDescription = title.substring(keyword_index3 + 1, endword_index3);
-
-    return ProjectDescription;
-  }
 }

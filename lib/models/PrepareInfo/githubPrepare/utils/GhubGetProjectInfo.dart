@@ -7,16 +7,15 @@ class GhubGetProjectInfo {
 
   Map<String,dynamic> AllprojectInfo(Document document,document3, String? releaseVersion) {
 
-    final String title = getTitle().Title(document);
-    final String author_name = Github_subStrings().AuthorName(title);
-    final String project_Title = Github_subStrings().ProjectName(title);
-    final String project_description = Github_subStrings().ProjectDescription(title);
+    final String Title = getTitle().Title(document);
     final List<dynamic> project_Releases = getProjectReleases().ProjectReleases(document, document3);
+    final Substrings = Github_subStrings();
+    Substrings.ghubSubstrings(Title);
 
     final Map<String, dynamic> projectInfo = {
-      'Ptitle': project_Title,
-      'Aname': author_name,
-      'Pdescription': project_description,
+      'Ptitle': Substrings.ProjectName,
+      'Aname': Substrings.Author_name,
+      'Pdescription': Substrings.ProjectDescription,
       'ProjectReleases': project_Releases,
       'Rversion' : releaseVersion,
     };
