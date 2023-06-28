@@ -1,33 +1,23 @@
+import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/utils/GlabgetProjectDetails.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
-import 'package:GitFossBOT/models/URLprocess/URLfetchParseInfo.dart';
 
 class gitlabPost {
+
   gitlabPost({
     required this.teledart,
     required this.message,
     required this.GitLink,
   });
 
-  TeleDart teledart;
-  TeleDartMessage message;
+  final TeleDart teledart;
+  final TeleDartMessage message;
   String GitLink = ''; //The gitlab link that would received from user.
 
   GitlabPost() async {
-    final URLfetchParse = URLfetchParseInfo(
-      URL: GitLink,
-      teledart: teledart,
-      message: message,
-    );
-
-    Map<String, dynamic>? ProjectInfo =
-        await URLfetchParse.URL_fetchParseInfo();
-
-    if (ProjectInfo != null) {
-      String projectTitle = ProjectInfo['Pname'];
-      String authorName = ProjectInfo['Aname'];
-      String projectDescription = ProjectInfo['Pdescription'];
-      String projectVersion = ProjectInfo['Rversion'];
+    
+    final ProjectDetails = GlabGetProjectDetails(teledart: teledart, message: message, GitLink: GitLink);
+    await ProjectDetails.ProjectDetails();
 
       //Auto sorting of platforms was delayed because can't fetch
       //releases info due to it's protection from gathering info from
@@ -38,19 +28,18 @@ class gitlabPost {
         '''
 #️⃣ <b>التصنيف</b> : 
 
-🏷 <b>اسم البرنامج</b> : <a href='$GitLink'>$projectTitle</a> 
+🏷 <b>اسم البرنامج</b> : <a href='$GitLink'>${ProjectDetails.projectTitle}</a> 
 
-📄 <b>الوصف</b> : $projectDescription
+📄 <b>الوصف</b> : ${ProjectDetails.projectDescription}
 
-🔢 <b>اخر إصدار (منذ النشر)</b> : $projectVersion
+🔢 <b>اخر إصدار (منذ النشر)</b> : ${ProjectDetails.projectVersion}
 
 💻 <b>المنصات المدعومة</b> : لينكس | ويندوز | ماك
 
-👤 <b>المطور</b> : $authorName
+👤 <b>المطور</b> : ${ProjectDetails.authorName}
             ㅤ
             ''',
         parseMode: 'html',
       );
     }
   }
-}
