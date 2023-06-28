@@ -1,4 +1,4 @@
-import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getAllProjectInfo.dart';
+import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/GhubGetProjectInfo.dart';
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getReleaseVersion.dart';
 import 'package:GitFossBOT/models/URLprocess/UrlErrorMsg.dart';
 import 'package:http/http.dart' as http;
@@ -37,7 +37,7 @@ class githubInfoPerpare {
     final response3 = await http.get(Uri.parse(releases_tag_url));
     final document3 = html.parse(response3.body);
     
-    final Map<String,dynamic> AllProjectInfo = getAllProjectInfo().AllprojectInfo(document, document3, releaseVersion);
+    final Map<String,dynamic> AllProjectInfo = GhubGetProjectInfo().AllprojectInfo(document, document3, releaseVersion);
 
     return AllProjectInfo;
     

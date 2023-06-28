@@ -3,7 +3,7 @@ import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getProjectRele
 import 'package:GitFossBOT/models/PrepareInfo/githubPrepare/utils/getTitle.dart';
 import 'package:html/dom.dart';
 
-class getAllProjectInfo {
+class GhubGetProjectInfo {
 
   Map<String,dynamic> AllprojectInfo(Document document,document3, String? releaseVersion) {
 
