@@ -20,6 +20,7 @@ class getProjectDetails {
   });
 
   ProjectDetails() async {
+    
     final URLfetchParse = URLfetchParseInfo(
       teledart: teleDart,
       URL: gitLink,
@@ -27,12 +28,15 @@ class getProjectDetails {
     );
 
     Map<String, dynamic>? projectInfo = await URLfetchParse.URL_fetchParseInfo();
-        
-    Author_name = projectInfo?['Aname'];
-    Project_title = projectInfo?['Ptitle'];
-    Project_description = projectInfo?['Pdescription'];
-    Project_Releases = projectInfo?['ProjectReleases'];
-    Release_version = projectInfo?['Rversion'];
+
+    if (projectInfo != null) {
+      Author_name = projectInfo['Aname'];
+      Project_title = projectInfo['Ptitle'];
+      Project_description = projectInfo['Pdescription'];
+      Project_Releases = projectInfo['ProjectReleases'];
+      Release_version = projectInfo['Rversion'];
+    }    
+    
   }
 
 }
