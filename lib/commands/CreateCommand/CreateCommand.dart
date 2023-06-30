@@ -11,9 +11,6 @@ class createCommand {
   
   final TeleDart teledart;
   String GitLink; //The github link that would received from user.
-  String Project_title = '';
-  String Author_name = '';
-  String Project_description = '';
   static const List<String> defaultURLs = ['github.com', 'gitlab'];
   bool isCreating = false;
   
