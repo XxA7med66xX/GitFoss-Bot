@@ -17,6 +17,7 @@ class GlabGetProjectDetails {
   String authorName = '';
   String projectDescription = '';
   String projectVersion = '';
+  bool isreceived = false;
 
   ProjectDetails() async {
 
@@ -33,6 +34,7 @@ class GlabGetProjectDetails {
       authorName = ProjectInfo['Aname'];
       projectDescription = ProjectInfo['Pdescription'];
       projectVersion = ProjectInfo['Rversion'];
+      isreceived = true;
     }
   }
 }

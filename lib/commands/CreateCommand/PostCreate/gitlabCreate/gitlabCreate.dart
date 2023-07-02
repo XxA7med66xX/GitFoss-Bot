@@ -23,6 +23,8 @@ class gitlabPost {
       //releases info due to it's protection from gathering info from
       //that section in gitlab.
 
+    if (ProjectDetails.isreceived) {
+
       await teledart.sendMessage(
         message.chat.id,
         '''
@@ -43,3 +45,4 @@ class gitlabPost {
       );
     }
   }
+}
