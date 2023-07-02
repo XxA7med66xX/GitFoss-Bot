@@ -1,6 +1,6 @@
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/githubCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/gitlabCreate.dart';
-import 'package:GitFossBOT/commands/CreateCommand/linkFormatter.dart';
+import 'package:GitFossBOT/commands/CreateCommand/utils/linkFormatter.dart';
 import 'package:teledart/teledart.dart';
 
 class createCommand {
