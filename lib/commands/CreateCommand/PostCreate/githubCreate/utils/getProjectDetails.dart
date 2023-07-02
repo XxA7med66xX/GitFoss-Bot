@@ -12,7 +12,7 @@ class getProjectDetails {
   String gitLink;
   TeleDart teleDart;
   TeleDartMessage message;
-
+  bool isreceived = false;
   getProjectDetails({
     this.gitLink = '',
     required this.teleDart,
@@ -35,6 +35,7 @@ class getProjectDetails {
       Project_description = projectInfo['Pdescription'];
       Project_Releases = projectInfo['ProjectReleases'];
       Release_version = projectInfo['Rversion'];
+      isreceived = true;
     }    
     
   }

@@ -24,7 +24,9 @@ class githubPost {
     _Categorys.category();  
       print(ProjectDetails.Project_title);
 
-    await teleDart.sendMessage(
+    if (ProjectDetails.isreceived) {
+
+      await teleDart.sendMessage(
           message.chat.id,
           '''
           #️⃣ <b>التصنيف</b> : ${_Categorys.categorys.join(' | ')}
@@ -44,4 +46,5 @@ class githubPost {
         );
     }
   }
+}
 
