@@ -1,6 +1,7 @@
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/githubCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/gitlabCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/utils/linkFormatter.dart';
+import 'package:GitFossBOT/commands/CreateCommand/utils/unsupportedMSG.dart';
 import 'package:teledart/teledart.dart';
 
 class createCommand {
@@ -46,10 +47,7 @@ class createCommand {
             return GitlabCreate.GitlabPost();
 
           default:
-            await teledart.sendMessage(
-              message.chat.id,
-              'رابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab',
-            );
+            UnsupportedMSG(teledart: teledart, message: message).msg();
         }
       },
     );
