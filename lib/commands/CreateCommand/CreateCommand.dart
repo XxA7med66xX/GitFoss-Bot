@@ -14,7 +14,7 @@ class createCommand {
   String GitLink; //The github link that would received from user.
   static const List<String> defaultURLs = ['github.com', 'gitlab'];
   bool isCreating = false;
-  
+  bool iscontaining = true;
   //This function used to set /create command on the bot.
   CreateCommand() {
     teledart.onCommand('create').listen(
@@ -29,11 +29,21 @@ class createCommand {
   }
 
   SaveUserInput() async {
+
     teledart.onMessage(entityType: 'url').listen(
       (message) async {
+
         if (!isCreating) return;
         
-        GitLink = LinkFormatter().formatGitLink(message.text!);
+        final String Text = message.text!;
+        
+        for (String defaultURL in defaultURLs) {
+          if (Text.contains(defaultURL)) {
+            GitLink = LinkFormatter().formatGitLink(message.text!);
+          } else {
+            iscontaining = false;
+          }
+        }
         
         switch (defaultURLs.indexWhere((defaultURL) => GitLink.contains(defaultURL))) {
           case 0:
@@ -47,7 +57,9 @@ class createCommand {
             return GitlabCreate.GitlabPost();
 
           default:
-            UnsupportedMSG(teledart: teledart, message: message).msg();
+            if (iscontaining == false) {
+              UnsupportedMSG(teledart: teledart, message: message).msg();
+            }
         }
       },
     );
