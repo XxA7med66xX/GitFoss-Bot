@@ -22,7 +22,7 @@ class URLfetchParseInfo {
     switch (defaultURLs.indexWhere((defaultURL) => URL.contains(defaultURL))) {
       case 0:
         final githubPrepare = githubInfoPerpare(URL: URL, teleDart: teledart, message: message,);
-        final WaitMsg = WaitMessage(teleDart: teledart, message: message);
+        final WaitMsg = WaitMessage(teleDart: teledart, message: message, Msg: message);
 
         WaitMsg.msg();
 
@@ -34,7 +34,7 @@ class URLfetchParseInfo {
 
       case 1:
         final gitlabPrepare = gitlabInfoPerpare(URL: URL, teledart: teledart, message: message);
-        final WaitMsg = WaitMessage(teleDart: teledart, message: message);
+        final WaitMsg = WaitMessage(teleDart: teledart, message: message, Msg: message);
 
         WaitMsg.msg();
 

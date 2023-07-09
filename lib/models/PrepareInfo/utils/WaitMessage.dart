@@ -3,11 +3,11 @@ import 'package:teledart/teledart.dart';
 
 class WaitMessage {
 
-  WaitMessage({required this.teleDart, required this.message});
+  WaitMessage({required this.teleDart, required this.message, required this.Msg});
 
   final TeleDart teleDart;
   final TeleDartMessage message;
-  Message? Msg;
+  Message Msg;
 
   Future<void> msg() async {
     
@@ -16,7 +16,7 @@ class WaitMessage {
 
   Future<void> delMsg() async {
     
-    await teleDart.deleteMessage(message.chat.id, Msg!.messageId);
+    await teleDart.deleteMessage(message.chat.id, Msg.messageId);
 
   }
 
