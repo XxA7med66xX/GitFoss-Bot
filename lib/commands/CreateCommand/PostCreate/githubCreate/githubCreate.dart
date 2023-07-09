@@ -6,15 +6,16 @@ import 'package:teledart/teledart.dart';
 
 class githubPost {
 
-  githubPost({this.gitLink = '', required this.teleDart, required this.message});
+  githubPost({this.gitLink = '', required this.teleDart, required this.message,required this.isreceived});
 
   final String gitLink;
   final TeleDart teleDart;
   final TeleDartMessage message;
+  bool isreceived;
   
   Githubpost() async {
 
-    final ProjectDetails = getProjectDetails(gitLink: gitLink, teleDart: teleDart, message: message);
+    final ProjectDetails = getProjectDetails(gitLink: gitLink, teleDart: teleDart, message: message,isreceived: isreceived);
     await ProjectDetails.ProjectDetails();
 
     final PlatformAutoSort = PlatformsAutoSort(ProjectReleases: ProjectDetails.Project_Releases);

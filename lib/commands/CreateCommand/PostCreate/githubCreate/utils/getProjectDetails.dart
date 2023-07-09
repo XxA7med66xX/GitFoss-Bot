@@ -12,11 +12,12 @@ class getProjectDetails {
   String gitLink;
   TeleDart teleDart;
   TeleDartMessage message;
-  bool isreceived = false;
+  bool isreceived;
   getProjectDetails({
     this.gitLink = '',
     required this.teleDart,
     required this.message,
+    required this.isreceived
   });
 
   ProjectDetails() async {
