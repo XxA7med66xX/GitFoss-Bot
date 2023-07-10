@@ -15,30 +15,8 @@ void main() async {
   StartHelpCommands.Start_Help_commands();
   
   //Create command, to create and prepare the post
-  final Createcommand = createCommand(teledart: teledart,);
+  final Createcommand = createCommand(teledart: teledart);
   Createcommand.CreateCommand();
   Createcommand.SaveUserInput();
   
-
-
-
 }
-
-  
-
-
-
-
-// update.listen((update) {
-  //   if(update.message == "/create"){
-  //     teledart.sendMessage(
-  //       update.message!.chat.id,
-  //       "Send github link",
-  //     );
-  //     String? GitLink = stdin.readLineSync();
-  //     print(GitLink);
-  //   }
-  // });
-
-
-  //GitHub - NVIDIA/open-gpu-kernel-modules: NVIDIA Linux open GPU kernel module source
