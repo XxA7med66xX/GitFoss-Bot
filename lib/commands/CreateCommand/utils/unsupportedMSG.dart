@@ -12,7 +12,7 @@ class UnsupportedMSG {
 
     await teledart.sendMessage(
       message.chat.id,
-      'رابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab',
+      'الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab',
     );
     
   }
