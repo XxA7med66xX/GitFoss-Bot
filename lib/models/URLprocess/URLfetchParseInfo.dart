@@ -23,26 +23,24 @@ class URLfetchParseInfo {
       case 0:
         final githubPrepare = githubInfoPerpare(URL: URL, teleDart: teledart, message: message,);
         final WaitMsg = WaitMessage(teleDart: teledart, message: message, Msg: message);
+        dynamic ghub;
 
-        WaitMsg.msg();
+        await WaitMsg.msg()
+              .then(((ghubInstance) async => ghub = await githubPrepare.githubPrepare()))
+              .then((delMsg) async => await WaitMsg.delMsg());
 
-        final dynamic Github = await githubPrepare.githubPrepare();
-
-        WaitMsg.delMsg();
-
-        return Github;
+        return Future.value(ghub);
 
       case 1:
         final gitlabPrepare = gitlabInfoPerpare(URL: URL, teledart: teledart, message: message);
         final WaitMsg = WaitMessage(teleDart: teledart, message: message, Msg: message);
+        dynamic glab;
 
-        WaitMsg.msg();
+        await WaitMsg.msg()
+            .then((glabInstance) async => glab = await gitlabPrepare.gitlabPrepare())
+            .then((delMsg) async => WaitMsg.delMsg());
 
-        final dynamic Gitlab = await gitlabPrepare.gitlabPrepare();
-
-        WaitMsg.delMsg();
-
-        return Gitlab;  
+        return Future.value(glab);  
     }
   }
 }
