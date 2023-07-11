@@ -6,7 +6,7 @@ class LinkFormatter {
 
   List<String> defaultURLs = ['github.com', 'gitlab'];
 
-  String formatGitLink(String link) {
+  formatGitLink(String link) {
     
     switch (defaultURLs.indexWhere((defaultURL) => link.contains(defaultURL))) {
 
@@ -17,8 +17,10 @@ class LinkFormatter {
           final repository = match.group(2);
           return 'https://github.com/$devName/$repository';
         } else {
-          throw NoSuchMethodError;
+          print('Badlink');
         }
+
+        return null;
 
       case 1:
         final match = _gitlabLinkPattern.firstMatch(link);
@@ -28,11 +30,13 @@ class LinkFormatter {
           final repository = match.group(3);
           return 'https://$domain/$devname/$repository';
         } else {
-          throw NoSuchMethodError;
+          print('Badlink');
         }
         
+        return null;
+
       default:
-        throw NoSuchMethodError;
+        print('Badlink');
     }
   }
 }

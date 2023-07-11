@@ -2,6 +2,8 @@ import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/github
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/gitlabCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/utils/linkFormatter.dart';
 import 'package:GitFossBOT/commands/CreateCommand/utils/unsupportedMSG.dart';
+import 'package:GitFossBOT/models/URLprocess/UrlErrorMsg.dart';
+import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
 class createCommand {
@@ -11,6 +13,7 @@ class createCommand {
   });
   
   final TeleDart teledart;
+  Message? message;
   String GitLink; //The github link that would received from user.
   static const List<String> defaultURLs = ['github.com', 'gitlab'];
   bool isCreating = false;
@@ -46,10 +49,14 @@ class createCommand {
         for (String defaultURL in defaultURLs) {
           if (Text.contains(defaultURL)) {
             iscontaining = true;
-            GitLink = LinkFormatter().formatGitLink(message.text!);
+            GitLink = LinkFormatter().formatGitLink(message.text!) ?? 'BadLink';
+
+            if (GitLink.contains('BadLink')) {
+              UrlErrorMsg(teleDart: teledart, message: message).ErrorMsg();
+            }
           }
         }
-        
+
         switch (defaultURLs.indexWhere((defaultURL) => GitLink.contains(defaultURL))) {
           case 0:
             final GithubCreate = githubPost(gitLink: GitLink, teleDart: teledart, message: message,isreceived: isreceived);
