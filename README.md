@@ -62,10 +62,12 @@
   <h1 align="left">⚙️ Get started</h1>
 
   <p align="left">1- Install dart lang by following this <a href='https://dart.dev/get-dart#install'>website</a> </p>
-  <p align="left">2- <code>cd GitFoss-Bot/</code></p>
-  <p align="left">3- <code>dart pub upgrade</code></p>
-  <p align="left">4- <code>cd bin/</code></p>
-  <p align="left">4- <code>dart main.dart</code></p>
+  <p align="left">2- Clone the repo <code>git clone https://github.com/XxA7med66xX/GitFoss-Bot.git</code></p></p>
+  <p align="left">3- <code>cd GitFoss-Bot/</code></p>
+  <p align="left">4- <code>dart pub upgrade</code></p>
+  <p align="left">5- <code>cd bin/</code></p>
+  <p align="left">6- Add your bot token to this variable <code>BOT_TOKEN = ' '</code> in main.dart </p></p>
+  <p align="left">7- <code>dart main.dart</code></p>
 
   <br/>
 
