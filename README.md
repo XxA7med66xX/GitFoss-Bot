@@ -20,6 +20,15 @@
 
   <br/>
 
+  <h1 align="left">▶️ Previews</h1>
+
+  | Github | Gitlab |
+|----------|----------|
+| <video width="1920" height="1080" controls><source src="https://github.com/XxA7med66xX/GitFoss-Bot/blob/8f3ed31b047837038c9b69d3b3c85f7e2abddc5a/assets/Previews/GithubPreview.mp4" type="video/mp4"></video> | <video width="1920" height="1080" controls><source src="https://github.com/XxA7med66xX/GitFoss-Bot/blob/8f3ed31b047837038c9b69d3b3c85f7e2abddc5a/assets/Previews/GitlabPreview.mp4" type="video/mp4"></video> |
+
+
+  <br/>
+
   <h1 align="left">❔️ Why</h1>
 
   <p align="center">I always love discovering projects on GitHub/GitLab and spending a lot of time finding useful tools for my daily use. Over the years, I've saved a lot of links to GitHub/GitLab on my notes and Telegram account. I started thinking about how to organize all these links to make it easy to access them, so I created a Telegram channel to organize them using hashtags. However, after months, I found this process to be exhausting. Finally, I decided to write this bot to automate the process and share the projects I love with others. </p>
@@ -38,6 +47,15 @@
   <p align="left">- This bot is still in the beta state, and there are a lot of features that will be added in the future.</p>
   <p align="left">- The platform auto-sorting feature works only with GitHub links for now</p>
   <p align="left">- Some GitHub links can cause the bot to stop</p>
+
+  <br/>
+
+  <h1 align="left">📋 Todo</h1>
+  
+  <p align="left">- Add an inline search feature for Github and Gitlab, so that anyone can search for projects within the bot.</p>
+  <p align="left">- Add support for automatically translating the project description into Arabic using AI.</p>
+  <p align="left">- Add localization support for (English).</p>
+  
 
   <br/>
 
