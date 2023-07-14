@@ -24,7 +24,7 @@
 
   | Github | Gitlab |
 |----------|----------|
-| <video width="1920" height="1080" controls><source src="https://github.com/XxA7med66xX/GitFoss-Bot/blob/8f3ed31b047837038c9b69d3b3c85f7e2abddc5a/assets/Previews/GithubPreview.mp4" type="video/mp4"></video> | <video width="1920" height="1080" controls><source src="https://github.com/XxA7med66xX/GitFoss-Bot/blob/8f3ed31b047837038c9b69d3b3c85f7e2abddc5a/assets/Previews/GitlabPreview.mp4" type="video/mp4"></video> |
+|[![](https://markdown-videos.vercel.app/youtube/85LDxpUilxg)](https://youtu.be/85LDxpUilxg)|[![](https://markdown-videos.vercel.app/youtube/a_iJ4xxc1Zw)](https://youtu.be/a_iJ4xxc1Zw)|
 
 
   <br/>
