@@ -1,0 +1,31 @@
+{
+    "ProjectInfo": {
+        "Name": "اسم البرنامج",
+        "Description": "الوصف",
+        "ReleaseVersion": "اخر إصدار (منذ النشر)",
+        "SupportedPlatforms": {
+            "SupportedPlatforms": "المنصات المدعومة",
+            "Linux": "لينكس",
+            "Windows": "ويندوز",
+            "Mac": "ماك"
+        },
+        "Author": "المطور"
+    },
+    "Categories": {
+        "Category": "التصنيف",
+        "AppImages": "#تطبيقات_محمولة",
+        "GnomeExtentions": "#إضافات_جنوم",
+        "FlatpakApps": "#تطبيقات_فلاتباك",
+        "SnapApps": "#تطبيقات_سناب"
+    },
+    "MSGs": {
+        "WellcomeMSG": "أهلاً بك في البوت التجريبي يا",
+        "DescriptionMSG": "هذا هو البوت المساعد الخاص بقناة GitFoss، بإستخدام هذا البوت يمكنك إعداد معلومات مختصرة عن أي مشروع على Github أو Gitlab بضغطة زر.",
+        "CreateMSG": "الرجاء إرسال رابط لمشروع على Github أو Gitlab",
+        "WaitMSG": "جاري الإعداد... ⏳",
+        "ErrorMSGs": {
+            "UrlErrorMsg": "المشروع غير موجود، الرجاء التحقق من الرابط المُدخل",
+            "UnsupportedLink": "الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab"
+        }
+    }
+}

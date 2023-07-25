@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/githubCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/gitlabCreate.dart';
 import 'package:GitFossBOT/commands/CreateCommand/utils/linkFormatter.dart';
@@ -29,7 +30,7 @@ class createCommand {
         isreceived = false;
         await teledart.sendMessage(
           message.chat.id,
-          'الرجاء إرسال رابط لمشروع على Github أو Gitlab',
+          Allstrings().CreateMSG,
         );
         print('iscontaining = $iscontaining');
         print('isrecieved = $isreceived');

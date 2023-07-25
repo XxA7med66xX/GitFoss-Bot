@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
 
 class Categorys {
@@ -13,16 +14,16 @@ class Categorys {
     PlatformAutoSort.AutoSort();
         
     if (PlatformAutoSort.isAppImage) {
-      categorys.add('#تطبيقات_محمولة');
+      categorys.add(Allstrings().AppImages);
     }
     if (PlatformAutoSort.isGnome_extention) {
-      categorys.add('#إضافات_جنوم');
+      categorys.add(Allstrings().GnomeExtensions);
     }
     if (PlatformAutoSort.isFlatpak) {
-      categorys.add('#تطبيقات_فلاتباك');
+      categorys.add(Allstrings().FlatpakApps);
     }
     if (PlatformAutoSort.isSnap) {
-      categorys.add('#تطبيقات_سناب');
+      categorys.add(Allstrings().SnapApps);
     }
     
     return categorys;

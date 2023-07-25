@@ -1,0 +1,31 @@
+{
+    "ProjectInfo": {
+        "Name": "Program Name",
+        "Description": "Description",
+        "ReleaseVersion": "Latest version (since release)",
+        "SupportedPlatforms": {
+            "SupportedPlatforms": "Supported Platforms",
+            "Linux": "Linux",
+            "Windows": "Windows",
+            "Mac": "Mac"
+        },
+        "Author": "Author"
+    },
+    "Categories": {
+        "Category": "Categore",
+        "AppImages": "#AppImages",
+        "GnomeExtentions": "#Gnome_Extentions",
+        "FlatpakApps": "#Flatpak_Apps",
+        "SnapApps": "#Snap_Apps"
+    },
+    "MSGs": {
+        "WellcomeMSG": "Wellcome to the expremintal bot",
+        "DescriptionMSG": "This is the assistant bot for the GitFoss channel. Using this bot, you can set up brief information about any project on GitHub or GitLab with just one click.",
+        "CreateMSG": "Please send a link for a project in github or gitlab",
+        "WaitMSG": "Preparing... ⏳",
+        "ErrorMSGs": {
+            "UrlErrorMsg": "The project was not found, please check if the link is correct",
+            "UnsupportedLink": "The link is not supported, please send a link on github or gitlab"
+        }
+    }
+}

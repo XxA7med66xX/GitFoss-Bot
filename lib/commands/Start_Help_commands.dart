@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:teledart/teledart.dart';
 
 class Start_Help_Commands {
@@ -12,10 +13,10 @@ class Start_Help_Commands {
 
     teledart.onCommand(commands[0]).listen(
           (Message) => Message.reply(
-            "${Message.from!.firstName} أهلاً بك في البوت التجريبي يا",
+            "${Message.from!.firstName} ${Allstrings().WellcomeMSG}",
           ).then(
             (TeleDartMessage) => teledart.sendMessage(Message.chat.id,
-                "هذا هو البوت المساعد الخاص بقناة الالعاب يمكنك الإنضمام إلى القناة من <a href='https://t.me/Pc4Gaming'>هنا</a>",
+                "${Allstrings().DescriptionMSG}",
                 parseMode: 'html'),
           ),
         );

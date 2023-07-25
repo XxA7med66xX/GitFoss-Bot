@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 
 class PlatformsAutoSort {
   bool isAppImage = false;
@@ -14,7 +15,7 @@ class PlatformsAutoSort {
 
     List<Map<String, dynamic>> platforms = [
       {
-        'name': 'لينكس',
+        'name': Allstrings().Linux,
         'extensions': [
           'AppImage',
           'rpm',
@@ -33,7 +34,7 @@ class PlatformsAutoSort {
         ]
       },
       {
-        'name': 'ويندوز',
+        'name': Allstrings().Windows,
         'extensions': [
           'exe',
           'msi',
@@ -46,7 +47,7 @@ class PlatformsAutoSort {
         ]
       },
       {
-        'name': 'ماك',
+        'name': Allstrings().Mac,
         'extensions': ['dmg', 'macos', 'mac', 'apple', 'darwin', 'bin']
       }
     ];

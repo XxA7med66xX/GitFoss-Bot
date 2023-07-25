@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -11,7 +12,7 @@ class WaitMessage {
 
   Future<void> msg() async {
     
-    Msg = await teleDart.sendMessage(message.chat.id, 'جاري الإعداد... ⏳');
+    Msg = await teleDart.sendMessage(message.chat.id, Allstrings().WaitMSG);
   }
 
   Future<void> delMsg() async {

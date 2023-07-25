@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -12,7 +13,7 @@ class UnsupportedMSG {
 
     await teledart.sendMessage(
       message.chat.id,
-      'الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab',
+      Allstrings().UnsupportedLink,
     );
     
   }

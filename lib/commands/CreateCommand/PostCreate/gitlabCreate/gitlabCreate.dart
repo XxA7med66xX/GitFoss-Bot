@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/utils/GlabgetProjectDetails.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
@@ -28,17 +29,17 @@ class gitlabPost {
       await teledart.sendMessage(
         message.chat.id,
         '''
-#️⃣ <b>التصنيف</b> : 
+#️⃣ <b>${Allstrings().Category}</b> : 
 
-🏷 <b>اسم البرنامج</b> : <a href='$GitLink'>${ProjectDetails.projectTitle}</a> 
+🏷 <b>${Allstrings().ProjectName}</b> : <a href='$GitLink'>${ProjectDetails.projectTitle}</a> 
 
-📄 <b>الوصف</b> : ${ProjectDetails.projectDescription}
+📄 <b>${Allstrings().ProjectDescription}</b> : ${ProjectDetails.projectDescription}
 
-🔢 <b>اخر إصدار (منذ النشر)</b> : ${ProjectDetails.projectVersion}
+🔢 <b>${Allstrings().ReleaseVersion}</b> : ${ProjectDetails.projectVersion}
 
-💻 <b>المنصات المدعومة</b> : لينكس | ويندوز | ماك
+💻 <b>${Allstrings().SupportedPlatforms}</b> : لينكس | ويندوز | ماك
 
-👤 <b>المطور</b> : ${ProjectDetails.authorName}
+👤 <b>${Allstrings().AuthorName}</b> : ${ProjectDetails.authorName}
             ㅤ
             ''',
         parseMode: 'html',

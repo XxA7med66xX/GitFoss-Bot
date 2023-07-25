@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -10,11 +11,11 @@ class UrlErrorMsg {
     required this.teleDart,
     required this.message,
   });
-
-  ErrorMsg() {
+  
+  ErrorMsg() async {
     return teleDart.sendMessage(
       message.chat.id,
-      'المشروع غير موجود، الرجاء التحقق من الرابط المُدخل',
+      Allstrings().UrlErrorMsg,
     );
   }
   

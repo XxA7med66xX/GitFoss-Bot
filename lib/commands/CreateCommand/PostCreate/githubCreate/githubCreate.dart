@@ -1,3 +1,4 @@
+import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/Categorys.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/getProjectDetails.dart';
 import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
@@ -30,17 +31,17 @@ class githubPost {
       await teleDart.sendMessage(
           message.chat.id,
           '''
-          #️⃣ <b>التصنيف</b> : ${_Categorys.categorys.join(' | ')}
+          #️⃣ <b>${Allstrings().Category}</b> : ${_Categorys.categorys.join(' | ')}
 
-🏷 <b>اسم البرنامج</b> : <a href='$gitLink'>${ProjectDetails.Project_title}</a> 
+🏷 <b>${Allstrings().ProjectName}</b> : <a href='$gitLink'>${ProjectDetails.Project_title}</a> 
 
-📄 <b>الوصف</b> : ${ProjectDetails.Project_description}
+📄 <b>${Allstrings().ProjectDescription}</b> : ${ProjectDetails.Project_description}
 
-🔢 <b>اخر إصدار (منذ النشر)</b> : ${ProjectDetails.Release_version}
+🔢 <b>${Allstrings().ReleaseVersion}</b> : ${ProjectDetails.Release_version}
 
-💻 <b>المنصات المدعومة</b> : ${PlatformAutoSort.AutoSort().join(' | ')}
+💻 <b>${Allstrings().SupportedPlatforms}</b> : ${PlatformAutoSort.AutoSort().join(' | ')}
 
-👤 <b>المطور</b> : ${ProjectDetails.Author_name}
+👤 <b>${Allstrings().AuthorName}</b> : ${ProjectDetails.Author_name}
 ㅤ
           ''',
           parseMode: 'html'
