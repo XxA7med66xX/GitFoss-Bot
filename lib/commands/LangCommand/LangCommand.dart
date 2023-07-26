@@ -1,4 +1,5 @@
 import 'package:GitFossBOT/Localization/Localization.dart';
+import 'package:GitFossBOT/commands/LangCommand/utils/InitLanguages.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -20,82 +21,32 @@ class LangMap {
 
 class LangCommand {
 
-  LangCommand({required this.teledart}) {Languages();}
+  LangCommand({required this.teledart});
     
-  bool isSent = false;
   final TeleDart teledart;
 
   Langcommand() async {
 
-    final LanguageButtons = ReplyKeyboardMarkup(
-      oneTimeKeyboard: true, //Used to hide the keyboard after the user choose an option.
-      resizeKeyboard: true, //Used to resize keyboard depending to display res.
-      isPersistent: true,
-      inputFieldPlaceholder: 'اختر لغة البوت | Choose bot language',
-      keyboard: [
-        [
-          KeyboardButton(text: 'Arabic'),
-          KeyboardButton(text: 'English'),
-        ],
+    final InlineKeyboardMarkup LanguageButtons = InlineKeyboardMarkup(
+      inlineKeyboard: [
+        [InlineKeyboardButton(text: 'Arabic', callbackData: 'ar')],
+        [InlineKeyboardButton(text: 'English', callbackData: 'en')]
       ],
     );
 
     teledart.onCommand('lang').listen(
       (message) async {
 
-        isSent = true;
-
-        await teledart.sendMessage(
+        final ChooseMSG = await teledart.sendMessage(
           message.chat.id,
           'اختر لغة البوت | Choose bot language',
           replyMarkup: LanguageButtons,
         );
+        
+        await Languages().Initialize(teledart, ChooseMSG, LanguageButtons);
       },
     );
   }
 
-  Languages() {
 
-    //Arabic
-
-    teledart.onMessage(keyword: 'Arabic').listen(
-      (message) async {
-
-        if (isSent) {
-
-          await LangMap.LoadMap('ar');
-
-          Future.value(
-            teledart.sendMessage(
-              message.chat.id,
-              'العربية ✅',
-            ),
-          );
-
-          isSent = false;
-        }
-      },
-    );
-
-    //English
-
-    teledart.onMessage(keyword: 'English').listen(
-      (message) async {
-
-        if (isSent) {
-          
-          await LangMap.LoadMap('en');
-
-          Future.value(
-            teledart.sendMessage(
-              message.chat.id,
-              'English ✅',
-            ),
-          );
-
-          isSent = false;
-        }
-      },
-    );
-  }
 }
