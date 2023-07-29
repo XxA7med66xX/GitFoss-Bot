@@ -12,14 +12,20 @@ class Start_Help_Commands {
   Start_Help_commands() async {
 
     teledart.onCommand(commands[0]).listen(
-          (Message) => Message.reply(
-            "${Message.from!.firstName} ${Allstrings().WellcomeMSG}",
-          ).then(
-            (TeleDartMessage) => teledart.sendMessage(Message.chat.id,
-                "${Allstrings().DescriptionMSG}",
-                parseMode: 'html'),
-          ),
-        );
+      (message) {
+        teledart.sendMessage(
+              message.chat.id,
+              "${Allstrings().WellcomeMSG} ­ ${message.from!.firstName}",
+            )
+            .then(
+              (message) => teledart.sendMessage(
+                message.chat.id,
+                Allstrings().DescriptionMSG,
+                parseMode: 'html'
+              ),
+            );
+      },
+    );
   }
 }              
           
