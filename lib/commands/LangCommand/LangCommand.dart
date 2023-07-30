@@ -25,14 +25,14 @@ class LangCommand {
     
   final TeleDart teledart;
 
+  final InlineKeyboardMarkup LanguageButtons = InlineKeyboardMarkup(
+    inlineKeyboard: [
+      [InlineKeyboardButton(text: 'Arabic', callbackData: 'ar')],
+      [InlineKeyboardButton(text: 'English', callbackData: 'en')]
+    ],
+  );
+  
   Langcommand() async {
-
-    final InlineKeyboardMarkup LanguageButtons = InlineKeyboardMarkup(
-      inlineKeyboard: [
-        [InlineKeyboardButton(text: 'Arabic', callbackData: 'ar')],
-        [InlineKeyboardButton(text: 'English', callbackData: 'en')]
-      ],
-    );
 
     teledart.onCommand('lang').listen(
       (message) async {
@@ -48,5 +48,15 @@ class LangCommand {
     );
   }
 
+  showLanguageChooser(Message message) async {
+
+    final Message ChooseMSG = await teledart.sendMessage(
+      message.chat.id,
+      "اختر لغة البوت | Choose bot language",
+      replyMarkup: LanguageButtons,
+    );
+
+    await Languages().Initialize(teledart, ChooseMSG, LanguageButtons);
+  }
 
 }
