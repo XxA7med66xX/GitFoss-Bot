@@ -13,7 +13,7 @@ void main() async {
   teledart.start();
   
   //Greetings and Help message
-  final StartHelpCommands = Start_Help_Commands(teledart: teledart, BOT_TOKEN: BOT_TOKEN);
+  final StartHelpCommands = Start_Help_Commands(teledart: teledart);
   StartHelpCommands.Start_Help_commands();
   
   //Create command, to create and prepare the post

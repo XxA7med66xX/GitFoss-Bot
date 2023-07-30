@@ -5,10 +5,9 @@ import 'package:teledart/teledart.dart';
 class Start_Help_Commands {
 
   TeleDart teledart;
-  final String? BOT_TOKEN;
   List<String> commands = ["start", "help"];
 
-  Start_Help_Commands({required this.teledart, required this.BOT_TOKEN});
+  Start_Help_Commands({required this.teledart});
 
   Start_Help_commands() async {
 
