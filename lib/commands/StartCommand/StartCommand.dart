@@ -2,14 +2,14 @@ import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/LangCommand/LangCommand.dart';
 import 'package:teledart/teledart.dart';
 
-class Start_Help_Commands {
+class StartCommand {
 
   TeleDart teledart;
   List<String> commands = ["start", "help"];
 
-  Start_Help_Commands({required this.teledart});
+  StartCommand({required this.teledart});
 
-  Start_Help_commands() async {
+  Startcommand() async {
 
     teledart.onCommand(commands[0]).listen(
       (message) async {
