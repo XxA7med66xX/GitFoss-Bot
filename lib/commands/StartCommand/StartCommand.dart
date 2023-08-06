@@ -1,5 +1,6 @@
 import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/commands/LangCommand/LangCommand.dart';
+import 'package:GitFossBOT/commands/StartCommand/utils/channelLinkButton.dart';
 import 'package:teledart/teledart.dart';
 
 class StartCommand {
@@ -32,10 +33,13 @@ class StartCommand {
                   "${Allstrings().WellcomeMSG} ­ ${Callback.from.firstName}",
                 )
                 .then(
-                  (message) => teledart.sendMessage(
+                  (message) async {
+                    teledart.sendMessage(
                     message.chat.id,
                     Allstrings().DescriptionMSG,
-                  ),
+                    replyMarkup: await channelLinkButtons().channellinkButton(Callback.data)
+                  );
+                  },
                 );
         }
       },

@@ -31,4 +31,9 @@ class Allstrings {
   final String UrlErrorMsg = LangMap.map?["MSGs"]["ErrorMSGs"]["UrlErrorMsg"] ?? 'Please choose language';
   final String UnsupportedLink = LangMap.map?["MSGs"]["ErrorMSGs"]["UnsupportedLink"] ?? 'Please choose language';
 
+  //Short Words
+  final String JoinUS = LangMap.map?["ShortWords"]["JoinUs"]?? 'Please choose language';
+  final String LangName = LangMap.map?["ShortWords"]["LangName"]?? 'Please choose language';
+  final String LangCode = LangMap.map?["ShortWords"]["LangCode"]?? 'Please choose language';
+  final String ChannelLink = LangMap.map?["ChannelURL"]?? 'https://Currently-There-is-No-Channel-For-This-Language.com';
 }

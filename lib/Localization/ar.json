@@ -27,5 +27,11 @@
             "UrlErrorMsg": "المشروع غير موجود، الرجاء التحقق من الرابط المُدخل",
             "UnsupportedLink": "الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab"
         }
-    }
+    },
+    "ShortWords": {
+        "JoinUs": "انضم إلينا",
+        "LangName": "العربية",
+        "LangCode": "ar"
+    },
+    "ChannelURL": "https://t.me/GitFoss"
 }

@@ -27,5 +27,11 @@
             "UrlErrorMsg": "The project was not found, please check if the link is correct",
             "UnsupportedLink": "The link is not supported, please send a link on github or gitlab"
         }
-    }
+    },
+    "ShortWords": {
+        "JoinUs": "JoinUs",
+        "LangName": "English",
+        "LangCode": "en"
+    },
+    "ChannelURL": "https://t.me/GitFossEN"
 }
