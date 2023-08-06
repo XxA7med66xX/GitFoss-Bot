@@ -27,8 +27,8 @@ class LangCommand {
 
   final InlineKeyboardMarkup LanguageButtons = InlineKeyboardMarkup(
     inlineKeyboard: [
-      [InlineKeyboardButton(text: 'Arabic', callbackData: 'ar')],
-      [InlineKeyboardButton(text: 'English', callbackData: 'en')]
+      [InlineKeyboardButton(text: 'العربية 🇾🇪', callbackData: 'ar')],
+      [InlineKeyboardButton(text: 'English 🇺🇸', callbackData: 'en')]
     ],
   );
   
