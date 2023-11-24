@@ -1,5 +1,5 @@
 import 'package:GitFossBOT/Localization/AllStrings.dart';
-import 'package:GitFossBOT/commands/CreateCommand/PostCreate/gitlabCreate/utils/GlabgetProjectDetails.dart';
+import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/gitlabCreate/utils/GlabgetProjectDetails.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 

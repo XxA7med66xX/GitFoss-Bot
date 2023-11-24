@@ -21,7 +21,6 @@
     "MSGs": {
         "WellcomeMSG": "Wellcome to the expremintal bot",
         "DescriptionMSG": "This is the assistant bot for the GitFoss channel. Using this bot, you can set up brief information about any project on GitHub or GitLab with just one click.",
-        "CreateMSG": "Please send a link for a project in github or gitlab",
         "WaitMSG": "Preparing... ⏳",
         "ErrorMSGs": {
             "UrlErrorMsg": "The project was not found, please check if the link is correct",

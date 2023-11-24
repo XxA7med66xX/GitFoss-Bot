@@ -1,5 +1,5 @@
 import 'package:GitFossBOT/Localization/AllStrings.dart';
-import 'package:GitFossBOT/commands/CreateCommand/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
+import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
 
 class Categorys {
 
