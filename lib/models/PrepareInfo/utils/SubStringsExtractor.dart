@@ -1,27 +1,10 @@
-class SubStringsExtractor {
+class RegexExtractor {
 
-  Substring(String Title,{String Keyword='',String Endword='',int keyNUM = 0,int endNUM = 0}) {
-
-    final length = Endword.contains('length');
-
-    switch (length) {
-      case true:
-
-      final int keywordindex = Title.indexOf(Keyword);
-      final int endwordindex = Title.length;
-      final String TEXT = Title.substring(keywordindex + keyNUM, endwordindex + endNUM).trim();
-
-      return TEXT;    
-        
-      case false:
-
-      final int keywordindex = Title.indexOf(Keyword);
-      final int endwordindex = Title.indexOf(Endword);
-      final String TEXT = Title.substring(keywordindex + keyNUM, endwordindex + endNUM).trim();
+  String? targetText(String Title,String pattern) {
+    
+    String? text = RegExp(pattern).firstMatch(Title)?.group(1)?.trim()??'Error: No text utilizes this pattern';
           
-      return TEXT;
-
-    }
+    return text;
 
   }
   

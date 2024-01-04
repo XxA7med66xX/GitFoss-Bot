@@ -1,24 +1,24 @@
-import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getDescription.dart';
 import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/getReleaseVersion.dart';
+import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/gitlab_substrings.dart';
 import 'package:html/dom.dart';
-import 'package:GitFossBOT/models/PrepareInfo/gitlabPrepare/utils/gitlabSubStrings.dart';
 import '../../githubPrepare/utils/getTitle.dart';
 
 class GlabGetProjectInfo {
 
   Map<String,dynamic> AllProjectInfo(Document document, document2) {
 
-    final String Title = getTitle().Title(document);
-    final String? gitlab_title = gitlabSubStrings().ProjectName(Title);
-    final String gitlab_author = gitlabSubStrings().AuthorName(Title);
-    final String? gitlab_description = getDescription().description(document);
-    final String gitlab_release_version = getReleaseVersion().releaseVersion(document2);
+    final String title = getTitle().Title(document);
+
+    final gitlabSubStrings = GitlabSubStrings();
+    gitlabSubStrings.subStrings(title,document: document);
+
+    final String gitlabReleaseVersion = getReleaseVersion().releaseVersion(document2);
 
     final Map<String, dynamic> gitlabProjectInfo = {
-      'Pname': gitlab_title,
-      'Aname': gitlab_author,
-      'Pdescription': gitlab_description,
-      'Rversion': gitlab_release_version,
+      'Pname': gitlabSubStrings.projectName,
+      'Aname': gitlabSubStrings.authorName,
+      'Pdescription': gitlabSubStrings.projectDescription,
+      'Rversion': gitlabReleaseVersion,
     };
 
     return gitlabProjectInfo;
