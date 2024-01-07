@@ -1,6 +1,6 @@
 import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/githubCreate/githubCreate.dart';
 import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/gitlabCreate/gitlabCreate.dart';
-import 'package:GitFossBOT/Operations/userInputProcess/utils/linkFormatter.dart';
+import 'package:GitFossBOT/Operations/userInputProcess/utils/link_formatter.dart';
 import 'package:GitFossBOT/Operations/userInputProcess/utils/unsupportedMSG.dart';
 import 'package:GitFossBOT/models/URLprocess/UrlErrorMsg.dart';
 import 'package:teledart/model.dart';

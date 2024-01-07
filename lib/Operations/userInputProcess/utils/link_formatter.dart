@@ -1,8 +1,8 @@
 class LinkFormatter {
 
-  static final RegExp _githubLinkPattern = RegExp(r'^https?://github\.com/([\w-]+)/([\w-]+)/?.*$');
+  static final RegExp _githubLinkPattern = RegExp(r'^https:\/\/github\.com\/([^\/]+)\/([^\/]+)(?:\.git)?\/?.*$');
 
-  static final RegExp _gitlabLinkPattern = RegExp(r'https:\/\/([\w.]+)\/([\w-]+)\/([\w-]+)');
+  static final RegExp _gitlabLinkPattern = RegExp(r'^https:\/\/gitlab\.com\/([^\/]+)\/([^\/]+)(?:\.git)?\/?.*$');
 
   List<String> defaultURLs = ['github.com', 'gitlab'];
 
@@ -25,10 +25,9 @@ class LinkFormatter {
       case 1:
         final match = _gitlabLinkPattern.firstMatch(link);
         if (match != null) {
-          final domain = match.group(1);
-          final devname = match.group(2);
-          final repository = match.group(3);
-          return 'https://$domain/$devname/$repository';
+          final devname = match.group(1);
+          final repository = match.group(2);
+          return 'https://gitlab.com/$devname/$repository';
         } else {
           print('Badlink');
         }
