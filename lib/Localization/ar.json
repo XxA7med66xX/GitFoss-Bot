@@ -24,7 +24,12 @@
         "WaitMSG": "جاري الإعداد... ⏳",
         "ErrorMSGs": {
             "UrlErrorMsg": "المشروع غير موجود، الرجاء التحقق من الرابط المُدخل",
-            "UnsupportedLink": "الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab"
+            "UnsupportedLink": "الرابط غير مدعوم، الرجاء إرسال رابط لمشروع على Github أو Gitlab",
+            "MediaErrorMSG": {
+                "PhotoErrorMSG": "لاتوجد أي صور مُرفقة",
+                "GifErrorMSG": "لاتوجد أي صور متحركة مُرفقة",
+                "NoMediaErrorMSG" : "لاتوجد أي وسائط مُرفقة"
+            }            
         }
     },
     "ShortWords": {

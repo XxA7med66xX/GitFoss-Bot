@@ -24,7 +24,12 @@
         "WaitMSG": "Preparing... ⏳",
         "ErrorMSGs": {
             "UrlErrorMsg": "The project was not found, please check if the link is correct",
-            "UnsupportedLink": "The link is not supported, please send a link on github or gitlab"
+            "UnsupportedLink": "The link is not supported, please send a link on github or gitlab",
+            "MediaErrorMSG": {
+                "PhotoErrorMSG": "No images are being attached.",
+                "GifErrorMSG": "No animated photos are being attached",
+                "NoMediaErrorMSG": "No media are being attached"
+            }            
         }
     },
     "ShortWords": {

@@ -2,6 +2,7 @@ import 'package:GitFossBOT/Localization/AllStrings.dart';
 import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/githubCreate/utils/Categorys.dart';
 import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/githubCreate/utils/getProjectDetails.dart';
 import 'package:GitFossBOT/Operations/userInputProcess/PostCreate/githubCreate/utils/platforms_AutoSort.dart';
+import 'package:GitFossBOT/Operations/userInputProcess/utils/media_msg.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 
@@ -23,14 +24,11 @@ class githubPost {
     PlatformAutoSort.AutoSort();
     
     final _Categorys = Categorys(ProjectReleases: ProjectDetails.Project_Releases);
-    _Categorys.category();  
-      print(ProjectDetails.Project_title);
+    _Categorys.category();
 
-    if (ProjectDetails.isreceived) {
-
-      await teleDart.sendMessage(
-          message.chat.id,
-          '''
+    //The final message that will send
+    
+    final mainMessage = '''
           #️⃣ <b>${Allstrings().Category}</b> : ${_Categorys.categorys.join(' | ')}
 
 🏷 <b>${Allstrings().ProjectName}</b> : <a href='$gitLink'>${ProjectDetails.Project_title}</a> 
@@ -43,9 +41,11 @@ class githubPost {
 
 👤 <b>${Allstrings().AuthorName}</b> : ${ProjectDetails.Author_name}
 ㅤ
-          ''',
-          parseMode: 'html'
-        );
+'''; 
+
+    if (ProjectDetails.isreceived) {
+      await MediaMessage(teledart: teleDart, message: message).sendMedia(ProjectDetails.preveiwImages, ProjectDetails.preveiwGifs);
+      await teleDart.sendMessage(message.chat.id, mainMessage, parseMode: 'html');
     }
   }
 }

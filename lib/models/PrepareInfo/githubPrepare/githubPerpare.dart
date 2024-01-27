@@ -36,8 +36,13 @@ class githubInfoPerpare {
 
     final response3 = await http.get(Uri.parse(releases_tag_url));
     final document3 = html.parse(response3.body);
+
+    final String branchSectionUrl = '$URL/branches'; 
+
+    final response4 = await http.get(Uri.parse(branchSectionUrl));
+    final document4 = html.parse(response4.body);
     
-    final Map<String,dynamic> AllProjectInfo = GhubGetProjectInfo().AllprojectInfo(document, document3, releaseVersion);
+    final Map<String,dynamic> AllProjectInfo = await GhubGetProjectInfo().AllprojectInfo(document, document3, document4, releaseVersion);
 
     return AllProjectInfo;
     

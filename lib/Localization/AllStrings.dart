@@ -30,6 +30,9 @@ class Allstrings {
   //Error Messages
   final String UrlErrorMsg = LangMap.map?["MSGs"]["ErrorMSGs"]["UrlErrorMsg"] ?? 'Please choose language';
   final String UnsupportedLink = LangMap.map?["MSGs"]["ErrorMSGs"]["UnsupportedLink"] ?? 'Please choose language';
+  final String PhotoErrorMSG = LangMap.map?["MSGs"]["ErrorMSGs"]["MediaErrorMSG"]["PhotoErrorMSG"] ?? 'Please choose language';
+  final String GifErrorMSG = LangMap.map?["MSGs"]["ErrorMSGs"]["MediaErrorMSG"]["GifErrorMSG"] ?? 'Please choose language';
+  final String NoMediaErrorMSG = LangMap.map?["MSGs"]["ErrorMSGs"]["MediaErrorMSG"]["NoMediaErrorMSG"] ?? 'Please choose language';
 
   //Short Words
   final String JoinUS = LangMap.map?["ShortWords"]["JoinUs"]?? 'Please choose language';
